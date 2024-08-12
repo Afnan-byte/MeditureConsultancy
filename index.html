@@ -57,20 +57,45 @@
         .modal-content {
             border-radius: 10px; /* Rounded corners for the modal */
         }
-        .achievement {
+        .achievement-box {
             background-color: #B7773A;
             color: white;
             padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
+            border-radius: 10px;
             text-align: center;
         }
+        .achievement {
+            margin-bottom: 20px;
+        }
         .achievement h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            margin-bottom: 5px;
         }
         .achievement p {
-            font-size: 1.5em;
+            font-size: 1.2em;
+            margin: 0;
+        }
+        /* Remove margin on last item */
+        .achievement:last-child {
+            margin-bottom: 0;
+        }
+        .whatsapp-icon {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            font-size: 24px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .whatsapp-icon:hover {
+            background-color: #20B158;
+            text-decoration: none;
         }
     </style>
         
@@ -140,20 +165,13 @@
                 </div>
             </div>
         </div>
-        <!-- Header End -->
+      
 
-
-        <!-- Search Start -->
-       
-        <!-- Search End -->
-
-
-        <!-- Category Start -->
         
-        <div class="row">
-            <div class="col-md-10 d-flex justify-content-end" style="position: fixed; "><a><img src="img/icons8-whatsapp-48.png" height="60px" width="60px"></a></div>
-    
-        </div>
+       
+        <a href="https://wa.me/8089685278" class="whatsapp-icon" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
          
         <div class="container-xxl py-5">
            
@@ -759,24 +777,25 @@
         <!-- Team End -->
          <!----------------------------------------------------------------------------------------->
          <div class="container">
-            <div class="achievement">
-                <h1 id="years">0</h1>
-                <p>Years of Expertise</p>
-            </div>
-            <div class="achievement">
-                <h1 id="dataflows">0</h1>
-                <p>Dataflows Successfully Completed</p>
-            </div>
-            <div class="achievement">
-                <h1 id="examinations">0</h1>
-                <p>Examinations Booked</p>
-            </div>
-            <div class="achievement">
-                <h1 id="customers">0</h1>
-                <p>Happy Customers</p>
+            <div class="row achievement-box">
+                <div class="col-md-3 col-sm-6 achievement">
+                    <h1 id="years">0</h1>
+                    <p>Years of Expertise</p>
+                </div>
+                <div class="col-md-3 col-sm-6 achievement">
+                    <h1 id="dataflows">0</h1>
+                    <p>Dataflows Completed</p>
+                </div>
+                <div class="col-md-3 col-sm-6 achievement">
+                    <h1 id="examinations">0</h1>
+                    <p>Examinations Booked</p>
+                </div>
+                <div class="col-md-3 col-sm-6 achievement">
+                    <h1 id="customers">0</h1>
+                    <p>Happy Customers</p>
+                </div>
             </div>
         </div>
-
                   <!----------------------------------------------------------------------------------------->
 
 
@@ -916,7 +935,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Function to animate counting
         function animateCount(id, start, end, duration) {
             let startTime = null;
             const step = (timestamp) => {
